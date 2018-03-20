@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; PyCondor 0.4.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyCondor 0.4.0.dev0 documentation" href="index.html"/>
+        <link rel="next" title="Release Notes" href="changelog.html"/>
+        <link rel="prev" title="Command line interface" href="cli.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo3.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">PyCondor API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#job-examples">Job examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-job-submission">Basic Job submission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-arguments-to-a-job">Adding arguments to a Job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dagman-examples">Dagman examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-jobs-to-a-dagman">Adding Jobs to a Dagman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-inter-job-dependencies">Add inter-job dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-dagman-within-a-dagman">A Dagman within a Dagman</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Useful links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/jrbourbeau/pycondor">PyCondor &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/PyCondor/">PyCondor &#64; PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/jrbourbeau/pycondor/issues">Issue tracker</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyCondor</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/jrbourbeau/pycondor" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>All of the following examples use a dummy script, <code class="docutils literal notranslate"><span class="pre">savelist.py</span></code>, that creates and saves a Python <code class="docutils literal notranslate"><span class="pre">list</span></code>. <code class="docutils literal notranslate"><span class="pre">savelist.py</span></code> has a command-line argument <code class="docutils literal notranslate"><span class="pre">--length</span></code> that specifies how many items to generate in the list (default: <code class="docutils literal notranslate"><span class="pre">10</span></code>). The script is located in the <code class="docutils literal notranslate"><span class="pre">examples/</span></code> directory in the <a class="reference external" href="https://github.com/jrbourbeau/pycondor">PyCondor repository</a>.</p>
+<div class="section" id="job-examples">
+<h2>Job examples<a class="headerlink" href="#job-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-job-submission">
+<h3>Basic Job submission<a class="headerlink" href="#basic-job-submission" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycondor</span>
+
+<span class="c1"># Declare the error, output, log, and submit directories for Condor Job</span>
+<span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;condor/error&#39;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;condor/output&#39;</span>
+<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;condor/log&#39;</span>
+<span class="n">submit</span> <span class="o">=</span> <span class="s1">&#39;condor/submit&#39;</span>
+
+<span class="c1"># Setting up a PyCondor Job</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Write all necessary submit files and submit job to Condor</span>
+<span class="n">job</span><span class="o">.</span><span class="n">build_submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-arguments-to-a-job">
+<h3>Adding arguments to a Job<a class="headerlink" href="#adding-arguments-to-a-job" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycondor</span>
+
+<span class="c1"># Declare the error, output, log, and submit directories for Condor Job</span>
+<span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;condor/error&#39;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;condor/output&#39;</span>
+<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;condor/log&#39;</span>
+<span class="n">submit</span> <span class="o">=</span> <span class="s1">&#39;condor/submit&#39;</span>
+
+<span class="c1"># Setting up a PyCondor Job</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 50&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 100&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 200&#39;</span><span class="p">)</span>
+<span class="c1"># Write all necessary submit files and submit job to Condor</span>
+<span class="n">job</span><span class="o">.</span><span class="n">build_submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dagman-examples">
+<h2>Dagman examples<a class="headerlink" href="#dagman-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-jobs-to-a-dagman">
+<h3>Adding Jobs to a Dagman<a class="headerlink" href="#adding-jobs-to-a-dagman" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycondor</span>
+
+<span class="c1"># Declare the error, output, log, and submit directories for Condor Job</span>
+<span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;condor/error&#39;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;condor/output&#39;</span>
+<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;condor/log&#39;</span>
+<span class="n">submit</span> <span class="o">=</span> <span class="s1">&#39;condor/submit&#39;</span>
+
+<span class="c1"># Setting up a PyCondor Job</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 50&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 100&#39;</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 200&#39;</span><span class="p">)</span>
+
+<span class="c1"># Setting up a PyCondor Dagman</span>
+<span class="n">dagman</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Dagman</span><span class="p">(</span><span class="s1">&#39;exampledagman&#39;</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Add job to dagman</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+<span class="c1"># Write all necessary submit files and submit job to Condor</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">build_submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-inter-job-dependencies">
+<h3>Add inter-job dependencies<a class="headerlink" href="#add-inter-job-dependencies" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycondor</span>
+
+<span class="c1"># Declare the error, output, log, and submit directories for Condor Job</span>
+<span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;condor/error&#39;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;condor/output&#39;</span>
+<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;condor/log&#39;</span>
+<span class="n">submit</span> <span class="o">=</span> <span class="s1">&#39;condor/submit&#39;</span>
+
+<span class="c1"># Setting up first PyCondor Job</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob1&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job1</span>
+<span class="n">job1</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 100&#39;</span><span class="p">)</span>
+<span class="c1"># Setting up second PyCondor Job</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob2&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job1</span>
+<span class="n">job2</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 200&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add interjob reltionship.</span>
+<span class="c1"># Ensure that job1 is complete before job2 starts</span>
+<span class="n">job1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">job2</span><span class="p">)</span>
+
+<span class="c1"># Setting up a PyCondor Dagman</span>
+<span class="n">dagman</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Dagman</span><span class="p">(</span><span class="s1">&#39;exampledagman&#39;</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Add jobs to dagman</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job1</span><span class="p">)</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job2</span><span class="p">)</span>
+<span class="c1"># Write all necessary submit files and submit job to Condor</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">build_submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-dagman-within-a-dagman">
+<h3>A Dagman within a Dagman<a class="headerlink" href="#a-dagman-within-a-dagman" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pycondor</span>
+
+<span class="c1"># Declare the error, output, log, and submit directories for Condor Job</span>
+<span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;condor/error&#39;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;condor/output&#39;</span>
+<span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;condor/log&#39;</span>
+<span class="n">submit</span> <span class="o">=</span> <span class="s1">&#39;condor/submit&#39;</span>
+
+<span class="c1"># Setting up first PyCondor Job</span>
+<span class="n">job1</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob1&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">job1</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">retry</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1"># Setting up second PyCondor Job</span>
+<span class="n">job2</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob2&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job1</span>
+<span class="n">job2</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 200&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;200jobname&#39;</span><span class="p">)</span>
+<span class="n">job2</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length 400&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;400jobname&#39;</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Setting up a PyCondor Dagman</span>
+<span class="n">subdag</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Dagman</span><span class="p">(</span><span class="s1">&#39;example_subdag&#39;</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Add job1 to dagman</span>
+<span class="n">subdag</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job1</span><span class="p">)</span>
+<span class="n">subdag</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job2</span><span class="p">)</span>
+
+<span class="c1"># Setting up third PyCondor Job</span>
+<span class="n">job3</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span><span class="s1">&#39;examplejob3&#39;</span><span class="p">,</span> <span class="s1">&#39;savelist.py&#39;</span><span class="p">,</span>
+               <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+               <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Adding arguments to job1</span>
+<span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">210</span><span class="p">,</span> <span class="mi">220</span><span class="p">):</span>
+    <span class="n">job3</span><span class="o">.</span><span class="n">add_arg</span><span class="p">(</span><span class="s1">&#39;--length {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+
+<span class="c1"># Add interjob reltionship.</span>
+<span class="c1"># Ensure that the subdag is complete before job3 starts</span>
+<span class="n">subdag</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">job3</span><span class="p">)</span>
+
+<span class="c1"># Setting up a PyCondor Dagman</span>
+<span class="n">dagman</span> <span class="o">=</span> <span class="n">pycondor</span><span class="o">.</span><span class="n">Dagman</span><span class="p">(</span><span class="s1">&#39;exampledagman&#39;</span><span class="p">,</span> <span class="n">submit</span><span class="o">=</span><span class="n">submit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Add jobs to dagman</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">job3</span><span class="p">)</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">add_subdag</span><span class="p">(</span><span class="n">subdag</span><span class="p">)</span>
+<span class="c1"># Write all necessary submit files and submit job to Condor</span>
+<span class="n">dagman</span><span class="o">.</span><span class="n">build_submit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cli.html" class="btn btn-neutral" title="Command line interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, James Bourbeau.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.4.0.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
